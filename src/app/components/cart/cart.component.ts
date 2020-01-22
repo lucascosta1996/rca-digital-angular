@@ -8,7 +8,8 @@ import { AuthenticationService } from '@app/services'
 import { first } from 'rxjs/operators';
 
 @Component({
-	templateUrl: 'cart.component.html'
+  templateUrl: 'cart.component.html',
+  styleUrls: ['cart.component.scss']
 })
 
 export class CartComponent implements OnInit {
@@ -28,15 +29,6 @@ export class CartComponent implements OnInit {
   }
 
 	ngOnInit() {
-    // if( this.currentUser && JSON.parse(localStorage.getItem( 'cart' )).length === 0 ) {
-    //   const users = JSON.parse(localStorage.getItem('users')) || [];
-    //   const user = users.find( ( x: any ) => x.username === this.currentUser.username )
-
-    //   if ( user && user.cart ) {
-    //     localStorage.setItem( 'cart', user.cart )
-    //   }
-    // }
-
     if ( localStorage.getItem('cart') == null ) {
       let cart: any = [];
       localStorage.setItem('cart', JSON.stringify(cart));
@@ -62,7 +54,7 @@ export class CartComponent implements OnInit {
 		}
   }
   
-  changeQuantity(id: any, quantity: any) {
+  changeQuantity(id: any, quantity: any, amount: any) {
     const options = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
@@ -71,11 +63,15 @@ export class CartComponent implements OnInit {
       quantity: quantity
     };
 
-    return this.http.put( `/cart/quantity`, options )
-      .pipe()
-      .subscribe( (s) => {
-        this.loadCart();
-      } );
+    if ( amount === 1 && quantity === 'minus' ) {
+      return this.remove( id )
+    } else {
+      return this.http.put( `/cart/quantity`, options )
+        .pipe()
+        .subscribe( (s) => {
+          this.loadCart();
+        } );
+    }
   }
 
 	remove(id: any) {

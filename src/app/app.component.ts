@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '@app/services';
+import { AuthenticationService } from '@app/services'
+import { Subscription } from 'rxjs';
+import { User } from '@app/models';
 
 @Component({
   selector: 'app-root',
@@ -10,11 +13,18 @@ import { UserService } from '@app/services';
 })
 export class AppComponent implements OnInit {
   registerForm: FormGroup;
+  currentUser: User;
+  currentUserSubscription: Subscription;
 
   constructor(
     private userService: UserService,
-    private formBuilder: FormBuilder
-  ) {}
+    private formBuilder: FormBuilder,
+    private authenticationService: AuthenticationService
+  ) {
+    this.currentUserSubscription = this.authenticationService.currentUser.subscribe(user => {
+      this.currentUser = user;
+    });
+  }
 
 
   ngOnInit() {
@@ -30,6 +40,26 @@ export class AppComponent implements OnInit {
         });
   
         this.userService.register(this.registerForm.value)
+      }
+
+      if ( localStorage.getItem('cart') == null ) {
+        let cart: any = [];
+        localStorage.setItem('cart', JSON.stringify(cart));
+      }
+    }
+
+    ngDoCheck() {
+      this.updateUserCart()
+    }
+
+    updateUserCart() {
+      if( this.currentUser && JSON.parse(localStorage.getItem( 'cart' )).length === 0 ) {
+        const users = JSON.parse(localStorage.getItem('users')) || [];
+        const user = users.find( ( x: any ) => x.username === this.currentUser.username )
+
+        if ( user && user.cart ) {
+          localStorage.setItem( 'cart', user.cart )
+        }
       }
     }
 }

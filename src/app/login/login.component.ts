@@ -56,9 +56,6 @@ export class LoginComponent implements OnInit {
           this.loading = false;
           this.loginError = false;
           this.resetForm();
-          this.http.put( '/cart/update', options )
-            .pipe()
-            .subscribe();
           return;
         },
         ( error: any ) => {

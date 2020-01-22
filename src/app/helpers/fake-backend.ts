@@ -66,11 +66,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
           if( quantity === 'plus' ) {
             item.quantity += 1;
           } else {
-            if(item.quantity === 1) {
-              return
-            } else {
-              item.quantity -= 1
-            }
+            item.quantity -= 1
           }
           cartT[i] = JSON.stringify(item)
           break;
@@ -123,17 +119,10 @@ export class FakeBackendInterceptor implements HttpInterceptor {
 
     function removeCartProduct() {
       const { id } = body
+
       let cartT: any = JSON.parse(localStorage.getItem('cart'));
       let index: number = -1;
       const newCart = cartT.filter( (item: any) => JSON.parse(item).product.id !== id )
-      // for (var i = 0; i < cartT.length; i++) {
-      //   let item: Item = JSON.parse(cart[i]);
-      //   if (item.product.id == id) {
-      //     cartT.splice(i, 1);
-      //     i--;
-      //     break;
-      //   }
-      // }
 
       updateCurrentUserCart(newCart)
 
@@ -144,16 +133,16 @@ export class FakeBackendInterceptor implements HttpInterceptor {
 
     function updateCurrentUserCart(cartT: any) {
       const currentUserT = JSON.parse(localStorage.getItem('currentUser'))
-
+ 
       if (currentUserT) {
         const { username } = currentUserT;
         let user = users.find(( x: any ) => x.username === username);
-        user.cart = JSON.stringify(cartT);
+        user.cart = cartT;
         localStorage.setItem('currentUser', JSON.stringify(user));
 
         for (var u in users) {
           if (users[u].username == user.username) {
-             users[u].cart = JSON.stringify(cartT);
+             users[u].cart = cartT;
              break;
           }
         }
@@ -171,7 +160,8 @@ export class FakeBackendInterceptor implements HttpInterceptor {
         username: user.username,
         firstName: user.firstName,
         lastName: user.lastName,
-        token: 'fake-jwt-token'
+        token: 'fake-jwt-token',
+        cart: user.cart
       })
     }
 
