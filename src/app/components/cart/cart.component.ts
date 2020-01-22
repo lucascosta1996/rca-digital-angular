@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Item } from '@app/models/item';
 import { Subscription } from 'rxjs';
@@ -94,6 +94,4 @@ export class CartComponent implements OnInit {
         this.loadCart();
       } );
 	}
-
-
 }

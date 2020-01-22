@@ -1,10 +1,18 @@
 <div class="products-container">
-    <h3>Products</h3>
+    <header class="products-header">
+        <h3>Products</h3>
+        <div>
+            <a [routerLink]="['/cart']">
+                <img src="assets/images/cart.png" />
+            </a>
+            <span>{{cartAmount}}</span>
+        </div>
+    </header>
     <section class="products-wrapper">
         <div class="product" *ngFor="let product of products">
             <header>
                 <div class="name-platform">
-                    <h2>{{product.name}}</h2>
+                    <h4>{{product.name}}</h4>
                     <p>{{product.platform}}</p>
                 </div>
                 <span class="price">
@@ -12,7 +20,10 @@
                 </span>
             </header>
             <img src="{{product.photo}}" />
-            <button class="btn w-75 padding-15-tb mt-15 mb-35" [ngClass]="{'btn-logout': isProductOnCart(product.id), 'btn-login': !isProductOnCart(product.id)}" (click)="addProductToCart(product.id)">
+            <button
+                class="btn w-75 padding-15-tb mt-15 mb-35" [ngClass]="{'btn-logout': isProductOnCart(product.id), 'btn-login': !isProductOnCart(product.id)}"
+                (click)="isProductOnCart(product.id) ? removeProductFromCart(product.id) : addProductToCart(product.id)"
+            >
                 {{isProductOnCart(product.id) ? 'Remove from cart' : 'Add to cart'}}
             </button>
         </div>

@@ -1,5 +1,6 @@
 .products-container {
   background: #FAFAFA;
+  padding-top: 92px;
   width: 100%;
 }
 
@@ -14,7 +15,8 @@
   background: #FFFFFF;
   border: 2px solid transparent;
   box-sizing: border-box;
-  margin: 12px 13px;
+  cursor: pointer;
+  margin: 12px 16px;
   text-align: center;
   width: 369px;
 
@@ -48,4 +50,18 @@
   padding: 20px;
   right: 0;
   top: 0;
+}
+
+.products-header {
+  align-items: baseline;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding-bottom: 88px;
+  width: 76%;
+
+  img {
+    max-width: 42px;
+    width: 100%;
+  }
 }

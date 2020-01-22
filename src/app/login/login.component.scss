@@ -1,10 +1,12 @@
 .login-form {
+  background: #FFF;
   border: 1px solid #D8C4C4;
   border-radius: 6px;
   padding: 30px 12px;
   position: absolute;
   bottom: -186px;
-  left: -82%;
+  left: -45%;
+  z-index: 2;
 }
 
 .form-group {
@@ -13,7 +15,7 @@
     border-radius: 6px;
     margin-bottom: 7px;
     padding: 7px 11px;
-    width: 120px;
+    width: 100%;
 
     &::placeholder {
       color: #367BA4;

@@ -125,18 +125,19 @@ export class FakeBackendInterceptor implements HttpInterceptor {
       const { id } = body
       let cartT: any = JSON.parse(localStorage.getItem('cart'));
       let index: number = -1;
-      for (var i = 0; i < cartT.length; i++) {
-        let item: Item = JSON.parse(cart[i]);
-        if (item.product.id == id) {
-          debugger
-          cartT.splice(i, 1);
-          break;
-        }
-      }
+      const newCart = cartT.filter( (item: any) => JSON.parse(item).product.id !== id )
+      // for (var i = 0; i < cartT.length; i++) {
+      //   let item: Item = JSON.parse(cart[i]);
+      //   if (item.product.id == id) {
+      //     cartT.splice(i, 1);
+      //     i--;
+      //     break;
+      //   }
+      // }
 
-      updateCurrentUserCart(cartT)
+      updateCurrentUserCart(newCart)
 
-      localStorage.setItem('cart', JSON.stringify(cartT));
+      localStorage.setItem('cart', JSON.stringify(newCart));
 
       return ok({})
     }

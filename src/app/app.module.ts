@@ -16,12 +16,14 @@ import { ProductService } from './services';
 import { AppRoutes } from '@app/app.routing';
 import { AppComponent } from '@app/app.component';
 import { SharedModule } from '@app/shared';
+import { BannerComponent } from './components/banner/banner.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    LoginComponent
+    LoginComponent,
+    BannerComponent
   ],
   imports: [
     CommonModule,
