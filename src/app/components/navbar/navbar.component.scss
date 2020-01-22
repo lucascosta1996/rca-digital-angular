@@ -1,14 +1,19 @@
 .navbar {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  width: 80%;
+
   ul {
+    align-items: center;
+    display: flex;
     list-style: none;
 
     li {
-      border: solid 1px red;
-      &__logo {
-        img {
-          max-width: 244px;
-          width: 100%;
-        }
+      
+      &:nth-child(2) {
+        padding-left: 17px;
       }
     }
   }
@@ -16,11 +21,19 @@
 
 .navbar__logo {
   img {
-    max-width: 244px;
+    max-width: 137px;
     width: 100%;
   }
 }
 
 .login-hidden {
   display: none;
+}
+
+.left-div {
+  position: relative;
+}
+
+.userName {
+  margin-right: 19px;
 }

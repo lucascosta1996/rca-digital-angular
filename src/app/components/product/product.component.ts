@@ -4,7 +4,8 @@ import { Product } from '@app/models/product';
 import { ProductService } from '@app/services/product.service';
 
 @Component({
-	templateUrl: 'product.component.html'
+	templateUrl: 'product.component.html',
+  styleUrls: ['./product.component.scss']
 })
 
 export class ProductComponent implements OnInit {
@@ -25,6 +26,10 @@ export class ProductComponent implements OnInit {
 
 	addProductToCart(id: any) {
 		this.productService.addProductToCart( this.productService.find(id) )
+	}
+
+	isProductOnCart() {
+		
 	}
 
 }

@@ -5,12 +5,21 @@
         <img src="assets/images/logo.jpg" />
       </a>
     </li>
-    <li>{{currentUser && currentUser.firstName}}</li>
+    <li>
+      <a [routerLink]="['/products']">
+        Products
+      </a>
+    </li>
   </ul>
-  <button [ngClass]="{'btn btn-danger':currentUser, 'btn btn-success':!currentUser}" (click)="currentUser ? logout() : showLoginForm()"> 
-    {{currentUser ? 'Logout' : 'Login'}}
-  </button>
-  <div [ngClass]="{'login-hidden':(!showLogin || currentUser)}">
-    <app-login></app-login>
+  <div class="left-div">
+    <span class="userName">
+      {{currentUser && currentUser.firstName}}
+    </span> 
+    <button [ngClass]="{'btn-logout':currentUser, 'btn-login':!currentUser}" class="btn" (click)="currentUser ? logout() : showLoginForm()"> 
+      {{currentUser ? 'Logout' : 'Login'}}
+    </button>
+    <div [ngClass]="{'login-hidden':(!showLogin || currentUser)}">
+      <app-login></app-login>
+    </div>
   </div>
 </nav>

@@ -1,19 +1,20 @@
-<h3>Product List</h3>
-<table border="1">
-    <tr>
-        <th>Name</th>
-        <th>Price</th>
-        <th>Photo</th>
-        <th>Buy</th>
-    </tr>
-    <tr *ngFor="let product of products">
-        <td>{{product.name}}</td>
-        <td>{{product.price}}</td>
-        <td>
-            <img src="{{product.photo}}" width="50">
-        </td>
-        <td>
-            <a (click)="addProductToCart(product.id)">Buy Now</a>
-        </td>
-    </tr>
-</table>
+<div class="products-container">
+    <h3>Products</h3>
+    <section class="products-wrapper">
+        <div class="product" *ngFor="let product of products">
+            <header>
+                <div class="name-platform">
+                    <h2>{{product.name}}</h2>
+                    <p>{{product.platform}}</p>
+                </div>
+                <span class="price">
+                    R${{product.price}}
+                </span>
+            </header>
+            <img src="{{product.photo}}" />
+            <button class="btn w-75 padding-15-tb mt-15 mb-35" [ngClass]="{'btn-logout': isProductOnCart(product.id), 'btn-login': !isProductOnCart(product.id)}" (click)="addProductToCart(product.id)">
+                {{isProductOnCart(product.id) ? 'Remove from cart' : 'Add to cart'}}
+            </button>
+        </div>
+    </section> 
+</div>

@@ -1,0 +1,51 @@
+.products-container {
+  background: #FAFAFA;
+  width: 100%;
+}
+
+.products-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  width: 80%;
+}
+
+.product {
+  background: #FFFFFF;
+  border: 2px solid transparent;
+  box-sizing: border-box;
+  margin: 12px 13px;
+  text-align: center;
+  width: 369px;
+
+  &:hover {
+    border: 2px solid #1A78B7;
+    box-sizing: border-box;
+  }
+
+  header {
+    position: relative;
+  }
+
+  img {
+    margin: 0 auto;
+    max-height: 334px;
+    height: 100%;
+  }
+}
+
+.name-platform {
+  padding-left: 16px;
+  padding-top: 10px;
+  text-align: left;
+}
+
+.price {
+  background-color: #3877A1;
+  border-bottom-left-radius: 12px;
+  color: #FFF;
+  position: absolute;
+  padding: 20px;
+  right: 0;
+  top: 0;
+}

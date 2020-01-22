@@ -8,6 +8,7 @@ Global Styles
 
 body {
   background: $sidebar;
+  box-sizing: border-box;
   font-family: $bodyfont;
   margin: 0;
   overflow-x: hidden;
@@ -19,6 +20,11 @@ html {
   position: relative;
   min-height: 100%;
   background: $white;
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
 }
 
 a:hover,
@@ -40,4 +46,49 @@ a.link {
   &:focus {
     color: $themecolor;
   }
+}
+
+h1, h2, h3, h4 {
+  margin: 0;
+}
+
+.btn {
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  padding: 8px 13px;
+  transition: all .3s ease;
+
+  &:hover {
+    opacity: .9;
+  }
+}
+
+.btn-login {
+  background-color: #3877A1;
+}
+
+.btn-logout {
+  background-color: #E71C4C;
+}
+
+.padding-15-tb {
+  padding: 15px 13px;
+}
+
+.w-100 {
+  width: 144px;
+}
+
+.w-75 {
+  width: 75%;
+}
+
+.mt-15 {
+  margin-top: 15px;
+}
+
+.mb-35 {
+  margin-bottom: 35px;
 }

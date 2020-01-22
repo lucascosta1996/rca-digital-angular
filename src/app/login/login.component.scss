@@ -1,0 +1,22 @@
+.login-form {
+  border: 1px solid #D8C4C4;
+  border-radius: 6px;
+  padding: 30px 12px;
+  position: absolute;
+  bottom: -186px;
+  left: -82%;
+}
+
+.form-group {
+  input {
+    border: 1px solid #D8C4C4;
+    border-radius: 6px;
+    margin-bottom: 7px;
+    padding: 7px 11px;
+    width: 120px;
+
+    &::placeholder {
+      color: #367BA4;
+    }
+  }
+}
