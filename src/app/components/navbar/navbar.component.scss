@@ -1,0 +1,26 @@
+.navbar {
+  ul {
+    list-style: none;
+
+    li {
+      border: solid 1px red;
+      &__logo {
+        img {
+          max-width: 244px;
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+.navbar__logo {
+  img {
+    max-width: 244px;
+    width: 100%;
+  }
+}
+
+.login-hidden {
+  display: none;
+}

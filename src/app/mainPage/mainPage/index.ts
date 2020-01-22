@@ -1,0 +1,1 @@
+export * from '@app/mainPage/mainPage/mainPage.component';

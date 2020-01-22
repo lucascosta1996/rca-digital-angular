@@ -1,0 +1,16 @@
+<nav class="navbar">
+  <ul>
+    <li>
+      <a [routerLink]="['/']" class="navbar__logo" (click)="scrollTop()">
+        <img src="assets/images/logo.jpg" />
+      </a>
+    </li>
+    <li>{{currentUser && currentUser.firstName}}</li>
+  </ul>
+  <button [ngClass]="{'btn btn-danger':currentUser, 'btn btn-success':!currentUser}" (click)="currentUser ? logout() : showLoginForm()"> 
+    {{currentUser ? 'Logout' : 'Login'}}
+  </button>
+  <div [ngClass]="{'login-hidden':(!showLogin || currentUser)}">
+    <app-login></app-login>
+  </div>
+</nav>

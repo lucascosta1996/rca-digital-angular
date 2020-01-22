@@ -1,0 +1,9 @@
+{
+  "name": "rca-digital",
+  "short_name": "rca-digital",
+  "start_url": "index.html",
+  "display": "fullscreen",
+  "background_color": "#285DAB",
+  "theme_color": "#0090E3",
+  "orientation": "portrait"
+}
