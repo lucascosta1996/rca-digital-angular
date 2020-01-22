@@ -6,6 +6,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { MainPageRoutes } from '@app/mainPage/mainPage.routing';
 import { MainPageComponent } from '@app/mainPage/mainPage/mainPage.component';
+import { CartComponent } from '@app/components/cart/cart.component';
+import { ProductComponent } from '@app/components/product/product.component';
 
 @NgModule({
   imports: [
@@ -14,6 +16,10 @@ import { MainPageComponent } from '@app/mainPage/mainPage/mainPage.component';
     NgbModule,
     RouterModule.forChild(MainPageRoutes)
   ],
-  declarations: [MainPageComponent]
+  declarations: [
+    MainPageComponent,
+    CartComponent,
+    ProductComponent
+  ]
 })
 export class MainPageModule {}

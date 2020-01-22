@@ -8,9 +8,10 @@ import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule  } from '@angular/forms'
 
-import { NavbarComponent } from './components/navbar/navbar.component';
+import { NavbarComponent } from '@app/components/navbar/navbar.component';
 import { LoginComponent } from './login';
 import { fakeBackendProvider } from './helpers';
+import { ProductService } from './services';
 
 import { AppRoutes } from '@app/app.routing';
 import { AppComponent } from '@app/app.component';
@@ -33,7 +34,8 @@ import { SharedModule } from '@app/shared';
     ReactiveFormsModule
   ],
   providers: [
-    fakeBackendProvider
+    fakeBackendProvider,
+    ProductService
   ],
   bootstrap: [AppComponent]
 })

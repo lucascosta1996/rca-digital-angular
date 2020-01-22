@@ -1,0 +1,19 @@
+<h3>Product List</h3>
+<table border="1">
+    <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Photo</th>
+        <th>Buy</th>
+    </tr>
+    <tr *ngFor="let product of products">
+        <td>{{product.name}}</td>
+        <td>{{product.price}}</td>
+        <td>
+            <img src="{{product.photo}}" width="50">
+        </td>
+        <td>
+            <a (click)="addProductToCart(product.id)">Buy Now</a>
+        </td>
+    </tr>
+</table>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { AuthenticationService } from '@app/services';
 
@@ -15,6 +16,7 @@ export class LoginComponent implements OnInit {
   loginError = false;
 
   constructor(
+    private http: HttpClient,
     private formBuilder: FormBuilder,
     private authenticationService: AuthenticationService
   ) {}
@@ -39,6 +41,12 @@ export class LoginComponent implements OnInit {
       return;
     }
 
+    const options = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      })
+    };
+
     this.loading = true;
     this.authenticationService.login(this.f.username.value, this.f.password.value)
       .pipe(first())
@@ -46,7 +54,10 @@ export class LoginComponent implements OnInit {
         ( data: any ) => {
           this.loading = false;
           this.loginError = false;
-          this.resetForm()
+          this.resetForm();
+          this.http.put( '/cart/update', options )
+            .pipe()
+            .subscribe();
           return;
         },
         ( error: any ) => {
