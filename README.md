@@ -13,3 +13,7 @@ npm install
 ```bash
 npm start
 ```
+
+#### Username and password
+    Username: lucas2
+    Password: root
