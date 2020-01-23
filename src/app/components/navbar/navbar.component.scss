@@ -11,7 +11,13 @@
     list-style: none;
 
     li {
-      
+      a {
+        color: #3877A1;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 22px;
+        text-decoration: none;
+      }
+
       &:nth-child(2) {
         padding-left: 17px;
       }

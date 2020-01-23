@@ -1,22 +1,25 @@
 <div class="cart-wrapper">
-    <h3>Cart Info</h3>
-    <table border="1">
+    <header class="cart-header">
+        <h3>Cart</h3>
+    </header>
+    <table>
         <tr *ngFor="let item of items">
-            <td>
-            <img src="{{item.product.photo}}" width="50">
+            <td class="product-info">
+                <img src="{{item.product.photo}}" width="50">
+                <div>
+                    <span class="item-title">{{item.product.name}}</span>
+                    <span class="item-platform">{{item.product.platform}}</span>
+                </div>
+            <td class="amount" colspan="4" align="right">
+                <button class="minus-plus" (click)="changeQuantity(item.product.id, 'minus', item.quantity)">-</button>
+                    <span>{{item.quantity}}</span>
+                <button class="minus-plus" (click)="changeQuantity(item.product.id, 'plus', item.quantity)">+</button>
             </td>
-            <td>{{item.product.name}}</td>
-            <td>{{item.product.price}}</td>
-            <td>
-                <button (click)="changeQuantity(item.product.id, 'minus', item.quantity)">-</button>
-                    {{item.quantity}}
-                <button (click)="changeQuantity(item.product.id, 'plus', item.quantity)">+</button>
-            </td>
-            <td>{{item.product.price * item.quantity}}</td>
+            <td class="item-price" align="right">R$ {{item.product.price * item.quantity}}</td>
         </tr>
-        <tr>
-            <td colspan="6" align="right">Total</td>
-            <td>{{total}}</td>
+        <tr class="total-row">
+            <td class="total" colspan="5"  align="right">Total</td>
+            <td class="total" align="right">R$ {{total}}</td>
         </tr>
     </table>
 </div>

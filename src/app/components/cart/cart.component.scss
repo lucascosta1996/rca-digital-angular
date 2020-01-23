@@ -1,10 +1,96 @@
 .cart-wrapper {
   background: #FAFAFA;
-  padding-top: 92px;
+  padding: 92px 0;
   width: 100%;
 
   table {
+    border: none;
     margin: 0 auto;
     width: 80%;
   }
+
+  td {
+    border: none;
+    margin: 16px 0;
+  }
+}
+
+.product-info {
+  align-items: flex-start;
+  display: flex;
+
+  img {
+    max-width: 126px;
+    width: 100%;
+  }
+
+  div {
+    padding-left: 31px;
+
+    span {
+      display: block;
+    }
+  }
+}
+
+.minus-plus {
+  background: #FFF;
+  border: 1px solid #707070;
+  border-radius: 2px;
+  color: #707070;
+  cursor: pointer;
+  font-size: 30px;
+  height: 38px;
+  width: 38px;
+}
+
+.cart-header {
+  margin: 0 auto;
+  padding-bottom: 88px;
+  width: 80%;
+
+  h3 {
+    color: #000;
+    font-family: 'Roboto', sans-serif;
+    font-size: 63px;
+    font-weight: 100;
+  }
+}
+
+.amount {
+  span {
+    color: #707070;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 30px;
+    font-weight: 100;
+    padding: 0 17px;
+  }
+}
+
+.item-price,
+.item-title {
+  color: #707070;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 30px;
+}
+
+.item-price {
+  margin-top: 65px;
+}
+
+.item-platform {
+  color: #333333;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+}
+
+.total {
+  color: #707070;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.total-row {
+  padding-top: 95px;
 }

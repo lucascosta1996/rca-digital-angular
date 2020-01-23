@@ -12,10 +12,10 @@ export class ProductService {
     private http: HttpClient
   ) {
     this.products = [
-      { id: 'p01', name: 'TLOU 2', price: 199, photo: 'https://s3.amazonaws.com/comparegame/thumbnails/42666/large.jpg', platform: 'PS4' },
-      { id: 'p02', name: 'Cyberpunk 2077', price: 200, photo: 'https://media.playstation.com/is/image/SCEA/cyberpunk-2077-box-art-01-ps4-us-06jun19?$native_nt$', platform: 'PS4, PC, XBOX' },
-      { id: 'p03', name: 'Days Gone', price: 127, photo: 'https://http2.mlstatic.com/days-gone-ps4-D_NQ_NP_646055-MLB32044938716_092019-F.jpg', platform: 'PS4' },
-      { id: 'p04', name: 'God of War', price: 60, photo: 'https://www.mobygames.com/images/covers/l/501232-god-of-war-playstation-4-front-cover.jpg', platform: 'PS4' }
+      { id: 'p01', name: 'TLOU 2', price: 199, photo: '../../assets/images/tlofu.png', platform: 'PS4' },
+      { id: 'p02', name: 'Cyberpunk 2077', price: 200, photo: '../../assets/images/cyber.png', platform: 'PS4, PC, XBOX' },
+      { id: 'p03', name: 'Days Gone', price: 127, photo: '../../assets/images/days.png', platform: 'PS4' },
+      { id: 'p04', name: 'God of War', price: 60, photo: '../../assets/images/gow.png', platform: 'PS4' }
     ];
   }
 

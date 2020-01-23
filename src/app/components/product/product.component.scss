@@ -1,6 +1,7 @@
 .products-container {
   background: #FAFAFA;
   padding-top: 92px;
+  padding-bottom: 144px;
   width: 100%;
 }
 
@@ -64,4 +65,10 @@
     max-width: 42px;
     width: 100%;
   }
+}
+
+.number-amount {
+  color: #367BA4;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 22px;
 }
