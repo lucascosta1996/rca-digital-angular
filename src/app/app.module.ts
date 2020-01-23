@@ -17,13 +17,15 @@ import { AppRoutes } from '@app/app.routing';
 import { AppComponent } from '@app/app.component';
 import { SharedModule } from '@app/shared';
 import { BannerComponent } from './components/banner/banner.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     LoginComponent,
-    BannerComponent
+    BannerComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule,

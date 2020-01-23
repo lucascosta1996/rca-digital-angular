@@ -19,7 +19,7 @@ import { ProductComponent } from '@app/components/product/product.component';
   declarations: [
     MainPageComponent,
     CartComponent,
-    ProductComponent
+    ProductComponent,
   ]
 })
 export class MainPageModule {}
