@@ -13,7 +13,7 @@ import { ProductService } from '@app/services/product.service';
 export class ProductComponent implements OnInit {
 
 	private products: Product[];
-	cartAmount = JSON.parse(localStorage.getItem('cart')).length
+	cartAmount = 0
 
 	constructor(
     private http: HttpClient,
@@ -22,6 +22,8 @@ export class ProductComponent implements OnInit {
 
 	ngOnInit() {
 		this.products = this.productService.findAll();
+		const storage: any = localStorage.getItem('cart') || []
+		this.cartAmount = JSON.parse(storage);
 	}
 
 	findProduct(id: any) {
@@ -34,7 +36,7 @@ export class ProductComponent implements OnInit {
 
 	isProductOnCart( id: any ) {
 		if ( localStorage.getItem('cart') ) {
-			const cart = JSON.parse(localStorage.getItem( 'cart' ));
+			const cart = JSON.parse(localStorage.getItem( 'cart' )) || [];
 			const isOnCart = cart.filter( ( item: any ) => JSON.parse(item).product.id === id )
 			this.cartAmount = cart.length
 

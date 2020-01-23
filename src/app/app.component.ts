@@ -53,12 +53,12 @@ export class AppComponent implements OnInit {
     }
 
     updateUserCart() {
-      if( this.currentUser && JSON.parse(localStorage.getItem( 'cart' )).length === 0 ) {
+      if( this.currentUser && JSON.parse( localStorage.cart ).length === 0 ) {
         const users = JSON.parse(localStorage.getItem('users')) || [];
         const user = users.find( ( x: any ) => x.username === this.currentUser.username )
 
-        if ( user && user.cart ) {
-          localStorage.setItem( 'cart', user.cart )
+        if( user && user.cart ) {
+          return localStorage.setItem( 'cart', user.cart )
         }
       }
     }

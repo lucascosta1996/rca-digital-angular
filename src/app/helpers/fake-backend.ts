@@ -8,7 +8,6 @@ import { ProductService } from '@app/services/product.service';
 
 let users = JSON.parse(localStorage.getItem('users')) || [];
 let products = JSON.parse(localStorage.getItem('products')) || [];
-let cart = JSON.parse(localStorage.getItem('cart')) || [];
 let currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
 @Injectable()
@@ -40,8 +39,6 @@ export class FakeBackendInterceptor implements HttpInterceptor {
         return removeCartProduct();
       case url.endsWith('/cart/quantity') && method === 'PUT':
         return changeCartProductQuantity();
-      case url.endsWith('/cart/update') && method === 'PUT':
-        return updateCurrentUserCart(cart);
       case url.endsWith('/products') && method === 'GET':
         return getProducts();
       default:
